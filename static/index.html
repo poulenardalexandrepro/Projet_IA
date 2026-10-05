@@ -3,26 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Projet IA</title>
+<title>Assistant FAQ - Médiathèque Les Tilleuls</title>
 <style>
   body { font: 17px/1.5 system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; }
+  h1 { color: #333; }
+  .subtitle { color: #666; font-size: 0.95rem; margin-bottom: 2rem; }
   textarea, input, button { font: inherit; width: 100%; box-sizing: border-box; margin: .3rem 0 .8rem; padding: .6rem; }
-  button { cursor: pointer; }
+  button { cursor: pointer; background: #0066cc; color: white; border: none; border-radius: 4px; font-weight: 600; }
+  button:hover { background: #0052a3; }
+  button:disabled { background: #ccc; cursor: not-allowed; }
   #sortie { white-space: pre-wrap; background: #f3f3f0; padding: 1rem; border-radius: 6px; min-height: 3rem; }
   .meta { color: #666; font-size: .85rem; }
+  .info { background: #e8f4f8; border-left: 4px solid #0066cc; padding: 0.8rem; margin: 1rem 0; border-radius: 4px; font-size: 0.9rem; }
 </style>
 </head>
 <body>
-  <h1>[Nom de votre application]</h1>
-  <p>[Une phrase : à qui elle sert, et pour quoi faire.]</p>
+  <h1>🏛️ Assistant FAQ</h1>
+  <p class="subtitle"><strong>Médiathèque Les Tilleuls</strong> — Villars-sur-Furan</p>
+  <div class="info">
+    💡 Posez vos questions sur le règlement de la médiathèque. L'assistant vous répondra en citant les articles concernés.
+  </div>
 
   <label for="code">Code d'accès</label>
-  <input id="code" type="password" autocomplete="off">
+  <input id="code" type="password" autocomplete="off" placeholder="Entrez votre code">
 
-  <label for="texte">Votre demande</label>
-  <textarea id="texte" rows="6" maxlength="2000"></textarea>
+  <label for="texte">Votre question</label>
+  <textarea id="texte" rows="4" maxlength="2000" placeholder="Ex : Je peux prendre combien de DVD ? Quel est votre horaire le mercredi ?"></textarea>
 
-  <button id="envoyer">Envoyer</button>
+  <button id="envoyer">Poser la question</button>
   <div id="sortie" aria-live="polite"></div>
   <p class="meta" id="meta"></p>
 
@@ -30,7 +38,7 @@
 const $ = (id) => document.getElementById(id);
 $("envoyer").addEventListener("click", async () => {
   $("envoyer").disabled = true;
-  $("sortie").textContent = "Le modèle réfléchit…";
+  $("sortie").textContent = "⏳ Le modèle réfléchit…";
   $("meta").textContent = "";
   try {
     const r = await fetch("/api/demander", {
@@ -39,11 +47,11 @@ $("envoyer").addEventListener("click", async () => {
       body: JSON.stringify({ code: $("code").value, texte: $("texte").value }),
     });
     const d = await r.json();
-    if (!r.ok) throw new Error(d.detail || r.status);
-    $("sortie").textContent = d.reponse;          // textContent : jamais innerHTML
-    $("meta").textContent = `${d.modele} · ${d.duree_s} s`;
+    if (!r.ok) throw new Error(d.detail || `Erreur ${r.status}`);
+    $("sortie").textContent = d.reponse;
+    $("meta").textContent = `📊 ${d.modele} · ⏱️ ${d.duree_s} s`;
   } catch (e) {
-    $("sortie").textContent = "Erreur : " + e.message;
+    $("sortie").textContent = "❌ Erreur : " + e.message;
   } finally {
     $("envoyer").disabled = false;
   }
