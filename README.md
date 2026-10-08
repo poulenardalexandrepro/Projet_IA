@@ -1,7 +1,7 @@
 # Assistant FAQ - Médiathèque Les Tilleuls
 
 > Projet IA — BTS SIO 2 SLAM — Alexandre Poulenard — octobre 2026
-> **URL publique** : https://[…].trycloudflare.com — code d'accès envoyé à l'enseignant par e-mail
+> **URL publique** : https://according-proceed-gmc-bases.trycloudflare.com — code d'accès envoyé à l'enseignant par e-mail
 
 ## 1. Concevoir
 
@@ -27,8 +27,8 @@ L'application permet de répondre rapidement aux questions courantes du règleme
 
 | | |
 |---|---|
-| Carte graphique et mémoire vidéo (VRAM) | aucune, processeur seul |
-| Mémoire vive | 8 Go |
+| Carte graphique et mémoire vidéo (VRAM) | Nvidia RTX 4070ti |
+| Mémoire vive | 12 Go |
 | Modèle retenu | `qwen2.5:3b` |
 | Pourquoi celui-là | le modèle est assez léger pour tourner sans GPU, tout en restant suffisamment fiable pour traiter le règlement et les consignes de refus |
 | Modèle comparé | `qwen2.5:1.5b` |
