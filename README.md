@@ -71,8 +71,9 @@ Un deuxième échec concernait les questions hors sujet ou les demandes d'inform
 docker compose ps
 NAME                 IMAGE                           COMMAND                  SERVICE   CREATED             STATUS                       PORTS
 projet_ia-app-1      projet_ia-app                   "uvicorn main:app --…"   app       About an hour ago   Up About an hour (healthy)   **127.0.0.1:8000->8000/tcp**
-seul 127.0.0.1:8000 est publié, le port 11434 n'apparaît pas ;
 ```
+- Seul 127.0.0.1:8000 est publié, le port 11434 n'apparaît pas ;
+
 ## 6. Mettre en production — comment refaire
 
 ```bash
