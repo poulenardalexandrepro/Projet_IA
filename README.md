@@ -1,11 +1,11 @@
-# [Nom de l'application]
+# Assistant FAQ - Médiathèque Les Tilleuls
 
-> Projet IA — BTS SIO 2 SLAM — [Prénom NOM] — octobre 2026
+> Projet IA — BTS SIO 2 SLAM — Alexandre Poulenard — octobre 2026
 > **URL publique** : https://[…].trycloudflare.com — code d'accès envoyé à l'enseignant par e-mail
 
 ## 1. Concevoir
 
-**Sujet choisi** : [n° et intitulé de la liste]
+**Sujet choisi** : [n°1 - FAQ médiathèque]
 
 **L'organisation (fictive) et son besoin**, en trois phrases : qui, quel problème aujourd'hui, ce que l'application change.
 
