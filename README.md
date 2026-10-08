@@ -48,8 +48,8 @@ J'ai préparé un jeu de 10 cas dans `cas.json`, avec au moins deux hors sujet e
 
 | | Modèle retenu | Modèle comparé |
 |---|---|---|
-| Réussite (sur 10 cas × 3 essais) | … % | … % |
-| Temps de réponse médian | … s | … s |
+| Réussite (sur 10 cas × 3 essais) | 67 % | … % |
+| Temps de réponse médian | 2.3 s | … s |
 
 **Ce que les échecs montrent** :
 
