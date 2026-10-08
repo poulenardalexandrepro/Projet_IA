@@ -1,7 +1,7 @@
 # Assistant FAQ - Médiathèque Les Tilleuls
 
 > Projet IA — BTS SIO 2 SLAM — Alexandre Poulenard — octobre 2026
-> **URL publique** : https://according-proceed-gmc-bases.trycloudflare.com — code d'accès envoyé à l'enseignant par e-mail
+> **URL publique** : https://citations-modeling-organizing-april.trycloudflare.com — code d'accès envoyé à l'enseignant par e-mail
 
 ## 1. Concevoir
 
