@@ -68,9 +68,9 @@ Un deuxième échec concernait les questions hors sujet ou les demandes d'inform
 | Secrets dans le dépôt | des identifiants ou codes peuvent être exposés publiquement | le fichier `.env` est conservé hors du dépôt et les réglages sensibles restent séparés du code source |
 
 ```bash
-docker compose ps
+>>> docker compose ps
 NAME                 IMAGE                           COMMAND                  SERVICE   CREATED             STATUS                       PORTS
-projet_ia-app-1      projet_ia-app                   "uvicorn main:app --…"   app       About an hour ago   Up About an hour (healthy)   **127.0.0.1:8000->8000/tcp**
+projet_ia-app-1      projet_ia-app                   "uvicorn main:app --…"   app       About an hour ago   Up About an hour (healthy)   127.0.0.1:8000->8000/tcp
 ```
 - Seul 127.0.0.1:8000 est publié, le port 11434 n'apparaît pas ;
 
