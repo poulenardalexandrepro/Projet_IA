@@ -24,7 +24,13 @@ services:
     ports:
       - "127.0.0.1:8000:8000"
     healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/sante', timeout=5)"]
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8000/sante', timeout=5)",
+        ]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -38,21 +44,21 @@ services:
       app:
         condition: service_healthy
 
-  # ollama:
-  #   profiles: ["ollama"]
-  #   image: ollama/ollama:latest
-  #   restart: unless-stopped
-  #   volumes:
-  #     - modeles:/root/.ollama
-  #   # PAS de « ports: » : Ollama ne doit être joignable que par l'application.
-  #   # Carte NVIDIA (pilote + NVIDIA Container Toolkit installés) :
-  #   deploy:
-  #     resources:
-  #       reservations:
-  #         devices:
-  #           - driver: nvidia
-  #             count: all
-  #             capabilities: [gpu]
+  ollama:
+    profiles: ["ollama"]
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    volumes:
+      - modeles:/root/.ollama
+    # PAS de « ports: » : Ollama ne doit être joignable que par l'application.
+    # Carte NVIDIA (pilote + NVIDIA Container Toolkit installés) :
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
 
-# volumes:
-#   modeles:
+volumes:
+  modeles:
